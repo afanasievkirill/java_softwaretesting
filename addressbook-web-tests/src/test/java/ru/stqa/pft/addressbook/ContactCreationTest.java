@@ -72,12 +72,16 @@ public class ContactCreationTest {
 
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
-    driver.findElement(By.linkText("Logout")).click();
+    logout();
     driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
       fail(verificationErrorString);
     }
+  }
+
+  private void logout() {
+    driver.findElement(By.linkText("Logout")).click();
   }
 
   private boolean isElementPresent(By by) {
