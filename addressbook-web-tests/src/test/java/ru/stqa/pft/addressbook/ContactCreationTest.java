@@ -30,7 +30,7 @@ public class ContactCreationTest {
   @Test
   public void testContactCreation() throws Exception {
     initContactCreation();
-    fillContactForm("Ivanov", "Ivan", "Ivanovich", "Ivan_01", "Moscow Red squre 1 h1", "+79153925555");
+    fillContactForm(new ContactData("Ivanov", "Ivan", "Ivanovich", "Ivan_01", "Moscow Red squre 1 h1", "+79153925555"));
     submitContactCreation();
     returnToContactCreation();
 
@@ -44,26 +44,26 @@ public class ContactCreationTest {
     driver.findElement(By.name("submit")).click();
   }
 
-  private void fillContactForm(String firstname, String middlename, String lastname, String nickname, String address, String homephone) {
+  private void fillContactForm(ContactData contactData) {
     driver.findElement(By.name("firstname")).click();
     driver.findElement(By.name("firstname")).clear();
-    driver.findElement(By.name("firstname")).sendKeys(firstname);
+    driver.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
     driver.findElement(By.name("middlename")).click();
     driver.findElement(By.name("middlename")).clear();
-    driver.findElement(By.name("middlename")).sendKeys(middlename);
+    driver.findElement(By.name("middlename")).sendKeys(contactData.getMiddlename());
     driver.findElement(By.name("lastname")).click();
     driver.findElement(By.name("lastname")).clear();
-    driver.findElement(By.name("lastname")).sendKeys(lastname);
+    driver.findElement(By.name("lastname")).sendKeys(contactData.getLastname());
     driver.findElement(By.name("nickname")).click();
     driver.findElement(By.name("nickname")).clear();
-    driver.findElement(By.name("nickname")).sendKeys(nickname);
+    driver.findElement(By.name("nickname")).sendKeys(contactData.getNickname());
     driver.findElement(By.name("company")).click();
     driver.findElement(By.name("address")).click();
     driver.findElement(By.name("address")).clear();
-    driver.findElement(By.name("address")).sendKeys(address);
+    driver.findElement(By.name("address")).sendKeys(contactData.getAddress());
     driver.findElement(By.name("home")).click();
     driver.findElement(By.name("home")).clear();
-    driver.findElement(By.name("home")).sendKeys(homephone);
+    driver.findElement(By.name("home")).sendKeys(contactData.getHomephone());
   }
 
   private void initContactCreation() {
