@@ -1,11 +1,8 @@
 package ru.stqa.pft.addressbook;
 
 import java.util.concurrent.TimeUnit;
-
 import org.testng.annotations.*;
-
 import static org.testng.Assert.*;
-
 import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
@@ -38,7 +35,11 @@ public class GroupCreationTests extends TestBase {
     initGroupCreation();
     fillGroupForm(new GroupData("Test1", "Test2", "Test3"));
     submitGroupCreation();
-    driver.findElement(By.linkText("Logout")).click();
+    returnToGroupPage();
+      }
+
+  private void returnToGroupPage() {
+    driver.findElement(By.linkText("group page")).click();
   }
 
   private void submitGroupCreation() {
@@ -67,6 +68,7 @@ public class GroupCreationTests extends TestBase {
 
   @AfterMethod(alwaysRun = true)
   public void tearDown() throws Exception {
+    driver.findElement(By.linkText("Logout")).click();
     driver.quit();
     String verificationErrorString = verificationErrors.toString();
     if (!"".equals(verificationErrorString)) {
