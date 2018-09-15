@@ -69,4 +69,12 @@ public class TestBase {
       fail(verificationErrorString);
     }
   }
+
+  protected void deleteSelectedGroups() {
+    wd.findElement(By.name("delete")).click();
+  }
+
+  protected void selectGroup() {
+    wd.findElement(By.name("selected[]")).click();
+  }
 }
