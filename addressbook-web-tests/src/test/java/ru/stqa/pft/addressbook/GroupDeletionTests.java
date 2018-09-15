@@ -7,9 +7,8 @@ import org.openqa.selenium.*;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 
-public class GroupDeletionTests {
+public class GroupDeletionTests extends TestBase{
   private WebDriver wd;
-  private boolean acceptNextAlert = true;
   private StringBuffer verificationErrors = new StringBuffer();
 
   @BeforeMethod(alwaysRun = true)
@@ -43,36 +42,4 @@ public class GroupDeletionTests {
     }
   }
 
-  private boolean isElementPresent(By by) {
-    try {
-      wd.findElement(by);
-      return true;
-    } catch (NoSuchElementException e) {
-      return false;
-    }
-  }
-
-  private boolean isAlertPresent() {
-    try {
-      wd.switchTo().alert();
-      return true;
-    } catch (NoAlertPresentException e) {
-      return false;
-    }
-  }
-
-  private String closeAlertAndGetItsText() {
-    try {
-      Alert alert = wd.switchTo().alert();
-      String alertText = alert.getText();
-      if (acceptNextAlert) {
-        alert.accept();
-      } else {
-        alert.dismiss();
-      }
-      return alertText;
-    } finally {
-      acceptNextAlert = true;
-    }
-  }
 }
