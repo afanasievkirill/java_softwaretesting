@@ -11,15 +11,15 @@ public class ContactHelper extends HelperBase {
   }
 
   public void initContactCreation() {
-    wd.findElement(By.linkText("add new")).click();
+    click(By.linkText("add new"));
   }
 
   public void returnToContactCreation() {
-    wd.findElement(By.linkText("home page")).click();
+    click(By.linkText("home page"));
   }
 
   public void submitContactCreation() {
-    wd.findElement(By.name("submit")).click();
+    click(By.name("submit"));
   }
 
   public void fillContactForm(ContactData contactData) {
