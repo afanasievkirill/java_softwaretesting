@@ -41,4 +41,12 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.xpath("//input[@value='Delete']")).click();
    // assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));;
   }
+
+  public void editContact() {
+    click(By.xpath("//img[@alt='Edit']"));
+  }
+
+  public void submitContactChange() {
+    click(By.name("update"));
+  }
 }
