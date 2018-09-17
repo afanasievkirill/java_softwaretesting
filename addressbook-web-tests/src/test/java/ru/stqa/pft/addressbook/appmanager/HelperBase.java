@@ -7,6 +7,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 public class HelperBase {
   protected FirefoxDriver wd;
+  private boolean acceptNextAlert = true;
 
   public HelperBase(FirefoxDriver wd) {
     this.wd = wd;
@@ -28,6 +29,21 @@ public class HelperBase {
       return true;
     } catch (NoAlertPresentException e) {
       return false;
+    }
+  }
+
+  public String closeAlertAndGetItsText() {
+    try {
+      Alert alert = wd.switchTo().alert();
+      String alertText = alert.getText();
+      if (acceptNextAlert) {
+        alert.accept();
+      } else {
+        alert.dismiss();
+      }
+      return alertText;
+    } finally {
+      acceptNextAlert = true;
     }
   }
 

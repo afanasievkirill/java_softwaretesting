@@ -38,8 +38,8 @@ public class ContactHelper extends HelperBase {
   }
 
   public void deleteContact() {
-    wd.findElement(By.xpath("//input[@value='Delete']")).click();
-   // assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));;
+    click(By.xpath("//input[@value='Delete']"));
+    assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
   }
 
   public void editContact() {
@@ -49,4 +49,6 @@ public class ContactHelper extends HelperBase {
   public void submitContactChange() {
     click(By.name("update"));
   }
+
+
 }
