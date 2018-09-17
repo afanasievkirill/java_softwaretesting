@@ -4,6 +4,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.pft.addressbook.model.ContactData;
 
+import static org.testng.Assert.assertTrue;
+
 public class ContactHelper extends HelperBase {
 
   public ContactHelper(FirefoxDriver wd) {
@@ -29,5 +31,14 @@ public class ContactHelper extends HelperBase {
     type(By.name("nickname"), contactData.getNickname());
     type(By.name("address"), contactData.getAddress());
     type(By.name("home"), contactData.getHomephone());
+  }
+
+  public void selectContact() {
+    click(By.name("selected[]"));
+  }
+
+  public void deleteContact() {
+    wd.findElement(By.xpath("//input[@value='Delete']")).click();
+   // assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));;
   }
 }
