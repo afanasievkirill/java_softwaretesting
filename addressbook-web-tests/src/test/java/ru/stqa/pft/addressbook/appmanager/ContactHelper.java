@@ -50,5 +50,4 @@ public class ContactHelper extends HelperBase {
     click(By.name("update"));
   }
 
-
 }
