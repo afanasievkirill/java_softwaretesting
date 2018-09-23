@@ -11,6 +11,9 @@ public class GroupHelper extends HelperBase {
   }
 
   public void returnToGroupPage() {
+    if(isElenentPresent(By.id("maintable"))){
+      return;
+    }
     click(By.linkText("group page"));
   }
 
