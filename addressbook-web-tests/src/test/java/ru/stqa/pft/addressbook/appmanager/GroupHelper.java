@@ -11,7 +11,7 @@ public class GroupHelper extends HelperBase {
   }
 
   public void returnToGroupPage() {
-    if(isElenentPresent(By.id("maintable"))){
+    if(isElementPresent(By.id("maintable"))){
       return;
     }
     click(By.linkText("group page"));
@@ -55,6 +55,10 @@ public class GroupHelper extends HelperBase {
   }
 
   public boolean isThereAGroup() {
-    return isElenentPresent(By.name("selected[]"));
+    return isElementPresent(By.name("selected[]"));
+  }
+
+  public int getGroupCount() {
+    return wd.findElements(By.name("selected[]")).size();
   }
 }

@@ -37,7 +37,7 @@ public class ContactHelper extends HelperBase {
     if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
-      Assert.assertFalse(isElenentPresent(By.name("new_group")));
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
 
   }
@@ -67,6 +67,6 @@ public class ContactHelper extends HelperBase {
   }
 
   public boolean isThereAContact() {
-    return isElenentPresent(By.name("selected[]"));
+    return isElementPresent(By.name("selected[]"));
   }
 }
