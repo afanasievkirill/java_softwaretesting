@@ -55,6 +55,7 @@ public class ContactHelper extends HelperBase {
   public void deleteContact() {
     click(By.xpath("//input[@value='Delete']"));
     assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
+    click(By.linkText("home")); //пауза
   }
 
   public void editContact() {
