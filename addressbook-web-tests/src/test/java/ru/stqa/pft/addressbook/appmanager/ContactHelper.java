@@ -22,7 +22,7 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("add new"));
   }
 
-  public void returnToContactCreation() {
+  public void returnToContactList() {
     click(By.linkText("home page"));
   }
 
@@ -61,7 +61,7 @@ public class ContactHelper extends HelperBase {
     click(By.xpath("//img[@alt='Edit']"));
   }
 
-  public void submitContactChange() {
+  public void submitContactModification() {
     click(By.name("update"));
   }
 
@@ -69,7 +69,7 @@ public class ContactHelper extends HelperBase {
     initContactCreation();
     fillContactData(contactData, group);
     submitContactCreation();
-    returnToContactCreation();
+    returnToContactList();
   }
 
   public boolean isThereAContact() {
