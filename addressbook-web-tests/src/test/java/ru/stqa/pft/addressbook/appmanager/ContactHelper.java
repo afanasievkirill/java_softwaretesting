@@ -86,7 +86,9 @@ public class ContactHelper extends HelperBase {
     List<WebElement> elements = wd.findElements(By.name("entry"));
     for (WebElement element : elements) {  //переменная пробегает по списку elements
       String firstname = element.getText();
-      ContactData contact = new ContactData(firstname);
+      String id = element.findElement(By.tagName("input")).getAttribute("value");
+      ContactData contact = new ContactData(id, firstname, null, null, null,
+              null, null, null );
       contacts.add(contact); //присвоение переменной возвращаемому массиву
     }
     return contacts;

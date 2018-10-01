@@ -22,7 +22,7 @@ public class ContactDeletionTests extends TestBase {
     Assert.assertEquals(after.size(), before.size() - 1); //проверка размеров массива
 
     before.remove(before.size() - 1);
-    Assert.assertEquals(before, after); //проверка значений массивов
+    Assert.assertEquals(before, after); //проверка значений массивов методом testng
 
 
   }
