@@ -3,17 +3,17 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-  private final String id;
+  private int id; //отсутствие идентификатора фанал позволяет генерировать сеттер
   private final String firstname;
   private final String middlename;
   private final String lastname;
   private final String nickname;
   private final String address;
   private final String homephone;
-  private String group;
+  private final String group;
 
   public ContactData(String firstname, String middlename, String lastname, String nickname, String address, String homephone, String group) {
-    this.id = null;
+    this.id = 0;
     this.firstname = firstname;
     this.middlename = middlename;
     this.lastname = lastname;
@@ -23,7 +23,7 @@ public class ContactData {
     this.group = group;
   }
 
-  public ContactData(String id, String firstname, String middlename, String lastname, String nickname, String address, String homephone, String group) {
+  public ContactData(int id, String firstname, String middlename, String lastname, String nickname, String address, String homephone, String group) {
     this.id = id;
     this.firstname = firstname;
     this.middlename = middlename;
@@ -62,7 +62,7 @@ public class ContactData {
     return group;
   }
 
-  public String getId() {
+  public int getId() {
     return id;
   }
 
@@ -87,5 +87,9 @@ public class ContactData {
   @Override
   public int hashCode() {
     return Objects.hash(id, firstname, lastname);
+  }
+
+  public void setId(int id) {
+    this.id = id;
   }
 }

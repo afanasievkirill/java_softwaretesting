@@ -30,6 +30,6 @@ public class ContactModificationTest extends TestBase {
 
     before.remove(before.size() - 1);
     before.add(contact);
-    Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after));
+    Assert.assertEquals(new HashSet<Object>(before), new HashSet<Object>(after)); //преобразование в множества
   }
 }

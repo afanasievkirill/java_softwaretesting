@@ -90,9 +90,9 @@ public class ContactHelper extends HelperBase {
       for (WebElement e : trs) {
         strings.add(e.getText()); //метод переводит вебэлемент в стринг
       }
-      String firstname = strings.get(2); 
+      String firstname = strings.get(2);
       String lastname = strings.get(1);
-      String id = element.findElement(By.tagName("input")).getAttribute("value");
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
       ContactData contact = new ContactData(id, firstname, null, lastname, null,
               null, null, null);
       contacts.add(contact); //присвоение переменной возвращаемому массиву
