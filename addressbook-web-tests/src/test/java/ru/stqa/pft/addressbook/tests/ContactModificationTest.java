@@ -18,8 +18,7 @@ public class ContactModificationTest extends TestBase {
               "Ivan_01", "Moscow Red squre 1 h1", "+79153925555", "Test1"), true);
     }
     List<ContactData> before = app.getContactHelper().getContactList();
-    app.getContactHelper().selectContact(before.size() - 1);
-    app.getContactHelper().editContact();
+    app.getContactHelper().editContact(before.size() - 1);
     ContactData contact = new ContactData(before.get(before.size() - 1).getId(), "Petrov",
             "Petr", "Ivanovich", "Ivan_01", "Moscow Red squre 1 h1",
             "+79153925555", null);
