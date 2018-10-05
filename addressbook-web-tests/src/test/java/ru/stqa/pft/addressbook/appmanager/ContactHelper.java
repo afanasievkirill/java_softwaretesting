@@ -53,6 +53,10 @@ public class ContactHelper extends HelperBase {
     //click(By.name("selected[]"));
   }
 
+  public void selectContactById(int id) {
+    wd.findElement(By.cssSelector("input[value = '"+id+"']")).click(); // выбор элемента по ID работающий
+  }
+
   public void deleteContact() {
     click(By.xpath("//input[@value='Delete']"));
     assertTrue(closeAlertAndGetItsText().matches("^Delete 1 addresses[\\s\\S]$"));
@@ -63,6 +67,12 @@ public class ContactHelper extends HelperBase {
     wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click(); // выбор элемента по индексу
 //    click(By.xpath("//img[@alt='Edit']"));
   }
+
+  public void editContactById(int id) {
+    wd.findElement(By.cssSelector("a[href='edit.php?id="+id+"']")).click(); // выбор элемента по индексу
+//    click(By.xpath("//img[@alt='Edit']"));
+  }
+
 
   public void submitContactModification() {
     click(By.name("update"));
@@ -75,8 +85,8 @@ public class ContactHelper extends HelperBase {
     returnToContactList();
   }
 
-  public void modify(int index, ContactData contact) {
-    editContact(index);
+  public void modify(ContactData contact) {
+    editContactById(contact.getId());
     fillContactData(contact, false);
     submitContactModification();
     returnToContactList();
@@ -84,6 +94,11 @@ public class ContactHelper extends HelperBase {
 
   public void delete(int index) {
     selectContact(index);
+    deleteContact();
+  }
+
+  public void delete(ContactData contact) {
+    selectContactById(contact.getId());
     deleteContact();
   }
 
@@ -131,5 +146,6 @@ public class ContactHelper extends HelperBase {
     }
     return contacts;
   }
+
 
 }
