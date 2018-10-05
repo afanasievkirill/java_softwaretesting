@@ -1,5 +1,7 @@
 package ru.stqa.pft.addressbook.tests;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.MatcherAssert;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -28,7 +30,8 @@ public class ContactDeletionTests extends TestBase {
     Assert.assertEquals(after.size(), before.size() - 1); //проверка размеров массива
 
     before.remove(deletedContact);
-    Assert.assertEquals(before, after); //проверка значений массивов методом testng
+  //  Assert.assertEquals(before, after); //проверка значений массивов методом testng
+    MatcherAssert.assertThat(after, CoreMatchers.equalTo(before));
   }
 
 }
