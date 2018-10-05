@@ -13,9 +13,7 @@ public class ContactDeletionTests extends TestBase {
   public void ensurePreconditions() {
     app.goTo().ContactPage();
     if (app.contact().list().size() == 0) {
-      app.contact().create(new ContactData
-              ("Ivanov", "Ivan", "Ivanovich", "Ivan_01",
-                      "Moscow Red squre 1 h1", "+79153925555", "Test1"), true);
+      app.contact().create(new ContactData().withFirstname("Delete").withLastname("Deletion"), true);
     }
   }
 
@@ -29,9 +27,6 @@ public class ContactDeletionTests extends TestBase {
 
     before.remove(index);
     Assert.assertEquals(before, after); //проверка значений массивов методом testng
-
-
   }
-
 
 }

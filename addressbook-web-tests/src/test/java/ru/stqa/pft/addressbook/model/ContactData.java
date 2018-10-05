@@ -3,36 +3,14 @@ package ru.stqa.pft.addressbook.model;
 import java.util.Objects;
 
 public class ContactData {
-  private int id; //отсутствие идентификатора фанал позволяет генерировать сеттер
-  private final String firstname;
-  private final String middlename;
-  private final String lastname;
-  private final String nickname;
-  private final String address;
-  private final String homephone;
-  private final String group;
-
-  public ContactData(String firstname, String middlename, String lastname, String nickname, String address, String homephone, String group) {
-    this.id = Integer.MAX_VALUE;
-    this.firstname = firstname;
-    this.middlename = middlename;
-    this.lastname = lastname;
-    this.nickname = nickname;
-    this.address = address;
-    this.homephone = homephone;
-    this.group = group;
-  }
-
-  public ContactData(int id, String firstname, String middlename, String lastname, String nickname, String address, String homephone, String group) {
-    this.id = id;
-    this.firstname = firstname;
-    this.middlename = middlename;
-    this.lastname = lastname;
-    this.nickname = nickname;
-    this.address = address;
-    this.homephone = homephone;
-    this.group = group;
-  }
+  private int id = Integer.MAX_VALUE;
+  private String firstname;
+  private String middlename;
+  private String lastname;
+  private String nickname;
+  private String address;
+  private String homephone;
+  private String group;
 
   public String getFirstname() {
     return firstname;
@@ -66,6 +44,46 @@ public class ContactData {
     return id;
   }
 
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
+  }
+
+  public ContactData withFirstname(String firstname) {
+    this.firstname = firstname;
+    return this;
+  }
+
+  public ContactData withMiddlename(String middlename) {
+    this.middlename = middlename;
+    return this;
+  }
+
+  public ContactData withLastname(String lastname) {
+    this.lastname = lastname;
+    return this;
+  }
+
+  public ContactData withNickname(String nickname) {
+    this.nickname = nickname;
+    return this;
+  }
+
+  public ContactData withAddress(String address) {
+    this.address = address;
+    return this;
+  }
+
+  public ContactData withHomephone(String homephone) {
+    this.homephone = homephone;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
+  }
+
   @Override
   public String toString() {
     return "ContactData{" +
@@ -88,7 +106,6 @@ public class ContactData {
     return Objects.hash(firstname, lastname);
   }
 
-  public void setId(int id) {
-    this.id = id;
-  }
+
+
 }

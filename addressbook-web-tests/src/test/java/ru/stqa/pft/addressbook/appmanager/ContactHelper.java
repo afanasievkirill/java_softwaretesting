@@ -106,11 +106,10 @@ public class ContactHelper extends HelperBase {
       String firstname = strings.get(2);
       String lastname = strings.get(1);
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-      ContactData contact = new ContactData(id, firstname, null, lastname, null,
-              null, null, null);
+      ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname);
       contacts.add(contact); //присвоение переменной возвращаемому массиву
     }
     return contacts;
-
   }
+
 }
