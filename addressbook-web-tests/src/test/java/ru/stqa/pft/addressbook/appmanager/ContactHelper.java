@@ -8,7 +8,9 @@ import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import static org.testng.Assert.assertTrue;
 
@@ -106,6 +108,24 @@ public class ContactHelper extends HelperBase {
       String firstname = strings.get(2);
       String lastname = strings.get(1);
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+      ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname);
+      contacts.add(contact); //присвоение переменной возвращаемому массиву
+    }
+    return contacts;
+  }
+
+  public Set<ContactData> all() {
+    Set<ContactData> contacts = new HashSet<ContactData>();
+    List<WebElement> elements = wd.findElements(By.name("entry"));
+    for (WebElement element : elements) {  //переменная пробегает по строкам таблицы
+      List<WebElement> trs = element.findElements(By.tagName("td")); //массив из элементов строки
+      List<String> strings = new ArrayList<String>(); //массив для преобразования вебэлемент в стринг
+      for (WebElement e : trs) {
+        strings.add(e.getText()); //метод переводит вебэлемент в стринг
+      }
+      String firstname = strings.get(2);
+      String lastname = strings.get(1);
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value")); //присвоение уникального идентификатора
       ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname);
       contacts.add(contact); //присвоение переменной возвращаемому массиву
     }
