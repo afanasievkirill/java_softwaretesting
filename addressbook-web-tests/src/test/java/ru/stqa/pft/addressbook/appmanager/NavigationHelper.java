@@ -24,7 +24,7 @@ public class NavigationHelper extends HelperBase{
     wd.findElement(By.linkText("home page")).click();
   }
 
-  public void gotoContactPage() {
+  public void ContactPage() {
     click(By.linkText("home"));
   }
 }
