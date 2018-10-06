@@ -42,7 +42,7 @@ public class ContactData {
     return workPhone;
   }
 
-  public String getMobilePhonee() {
+  public String getMobilePhone() {
     return mobilePhone;
   }
 
