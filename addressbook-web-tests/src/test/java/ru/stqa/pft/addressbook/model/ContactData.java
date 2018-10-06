@@ -9,7 +9,9 @@ public class ContactData {
   private String lastname;
   private String nickname;
   private String address;
-  private String homephone;
+  private String homePhone;
+  private String mobilePhone;
+  private String workPhone;
   private String group;
 
   public String getFirstname() {
@@ -32,8 +34,16 @@ public class ContactData {
     return address;
   }
 
-  public String getHomephone() {
-    return homephone;
+  public String getHomePhone() {
+    return homePhone;
+  }
+
+  public String getWorkPhone() {
+    return workPhone;
+  }
+
+  public String getMobilePhonee() {
+    return mobilePhone;
   }
 
   public String getGroup() {
@@ -75,9 +85,30 @@ public class ContactData {
   }
 
   public ContactData withHomephone(String homephone) {
-    this.homephone = homephone;
+    this.homePhone = homephone;
     return this;
   }
+
+  public ContactData withWorkPhone(String workPhone) {
+    this.workPhone = workPhone;
+    return this;
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            '}';
+  }
+
+  public ContactData withMobilePhone(String mobilePhone) {
+    this.mobilePhone = mobilePhone;
+    return this;
+  }
+
+
 
   public ContactData withGroup(String group) {
     this.group = group;
@@ -98,14 +129,5 @@ public class ContactData {
   public int hashCode() {
     return Objects.hash(id, firstname, lastname);
   }
-
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id='" + id + '\'' +
-            ", firstname='" + firstname + '\'' +
-            '}';
-  }
-
 
 }
