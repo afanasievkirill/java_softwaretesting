@@ -54,7 +54,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void selectContactById(int id) {
-    wd.findElement(By.cssSelector("input[value = '"+id+"']")).click(); // выбор элемента по ID работающий
+    wd.findElement(By.cssSelector("input[value = '" + id + "']")).click(); // выбор элемента по ID работающий
   }
 
   public void deleteContact() {
@@ -69,7 +69,7 @@ public class ContactHelper extends HelperBase {
   }
 
   public void editContactById(int id) {
-    wd.findElement(By.cssSelector("a[href='edit.php?id="+id+"']")).click(); // выбор элемента по индексу
+    wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click(); // выбор элемента по индексу
 //    click(By.xpath("//img[@alt='Edit']"));
   }
 
@@ -140,11 +140,14 @@ public class ContactHelper extends HelperBase {
       }
       String firstname = strings.get(2);
       String lastname = strings.get(1);
-      String[] phones = strings.get(5).split("\n");
+      String allPhones = strings.get(5);
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value")); //присвоение уникального идентификатора
       ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
+              .withAllPhones(allPhones);
+      /*   String[] phones = strings.get(5).split("\n");
+      ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
               .withHomephone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]);
-      contacts.add(contact); //присвоение переменной возвращаемому массиву
+      contacts.add(contact); //присвоение переменной возвращаемому массиву */
     }
     return contacts;
   }
