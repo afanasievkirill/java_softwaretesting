@@ -140,11 +140,12 @@ public class ContactHelper extends HelperBase {
       }
       String firstname = strings.get(2);
       String lastname = strings.get(1);
+      String address = strings.get(3);
       String allEmail = strings.get(4);
       String allPhones = strings.get(5);
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value")); //присвоение уникального идентификатора
       contacts.add( new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
-              .withAllEmail(allEmail).withAllPhones(allPhones));
+              .withAddress(address).withAllEmail(allEmail).withAllPhones(allPhones));
       /*   String[] phones = strings.get(5).split("\n");
       ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
               .withHomephone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]);
@@ -163,9 +164,10 @@ public class ContactHelper extends HelperBase {
     String email = wd.findElement(By.name("email")).getAttribute("value");
     String email2 = wd.findElement(By.name("email2")).getAttribute("value");
     String email3 = wd.findElement(By.name("email3")).getAttribute("value");
+    String address = wd.findElement(By.name("address")).getAttribute("value");
     wd.navigate().back(); //команда на возврат драйверу.
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
             .withHomephone(homePhone).withMobilePhone(mobilePhone).withWorkPhone(workPhone).
-                    withEmail(email).withEmail2(email2).withEmail3(email3);
+                    withEmail(email).withEmail2(email2).withEmail3(email3).withAddress(address);
   }
 }
