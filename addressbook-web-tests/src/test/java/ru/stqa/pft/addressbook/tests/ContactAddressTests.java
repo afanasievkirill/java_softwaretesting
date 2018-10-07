@@ -38,6 +38,7 @@ public class ContactAddressTests extends TestBase {
   }
 
   public static String cleaned(String phone){
-    return phone.replaceAll("\\s{2}", ""); //кажется очишает 2 и более пробела
+    return phone.replaceAll("\\s{2}", "") //кажется очишает 2 и более пробела
+      .trim(); //кажется очищает пробелы в начале и конце строки
   }
 }
