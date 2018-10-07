@@ -140,10 +140,11 @@ public class ContactHelper extends HelperBase {
       }
       String firstname = strings.get(2);
       String lastname = strings.get(1);
+      String allEmail = strings.get(4);
       String allPhones = strings.get(5);
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value")); //присвоение уникального идентификатора
       contacts.add( new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
-              .withAllPhones(allPhones));
+              .withAllEmail(allEmail).withAllPhones(allPhones));
       /*   String[] phones = strings.get(5).split("\n");
       ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
               .withHomephone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]);
@@ -159,8 +160,12 @@ public class ContactHelper extends HelperBase {
     String homePhone = wd.findElement(By.name("home")).getAttribute("value");
     String mobilePhone = wd.findElement(By.name("mobile")).getAttribute("value");
     String workPhone = wd.findElement(By.name("work")).getAttribute("value");
+    String email = wd.findElement(By.name("email")).getAttribute("value");
+    String email2 = wd.findElement(By.name("email2")).getAttribute("value");
+    String email3 = wd.findElement(By.name("email3")).getAttribute("value");
     wd.navigate().back(); //команда на возврат драйверу.
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
-            .withHomephone(homePhone).withMobilePhone(mobilePhone).withWorkPhone(workPhone);
+            .withHomephone(homePhone).withMobilePhone(mobilePhone).withWorkPhone(workPhone).
+                    withEmail(email).withEmail2(email2).withEmail3(email3);
   }
 }
