@@ -142,8 +142,8 @@ public class ContactHelper extends HelperBase {
       String lastname = strings.get(1);
       String allPhones = strings.get(5);
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value")); //присвоение уникального идентификатора
-      ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
-              .withAllPhones(allPhones);
+      contacts.add( new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
+              .withAllPhones(allPhones));
       /*   String[] phones = strings.get(5).split("\n");
       ContactData contact = new ContactData().withId(id).withFirstname(firstname).withLastname(lastname)
               .withHomephone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]);
