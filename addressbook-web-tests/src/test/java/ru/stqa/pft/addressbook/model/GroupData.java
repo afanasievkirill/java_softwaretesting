@@ -1,8 +1,13 @@
 package ru.stqa.pft.addressbook.model;
 
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
 import java.util.Objects;
 
+@XStreamAlias("group") //анотация управляет заголовками строк в xml.
 public class GroupData {
+  @XStreamOmitField // анотация убирает ид при загрузке в xml.
   private int id = Integer.MAX_VALUE;
   private String name;
   private String header;
