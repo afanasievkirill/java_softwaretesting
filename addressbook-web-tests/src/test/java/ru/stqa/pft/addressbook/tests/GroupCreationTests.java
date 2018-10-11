@@ -21,23 +21,30 @@ public class GroupCreationTests extends TestBase {
   @DataProvider
   public Iterator<Object[]> validGroups() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-   /* list.add(new Object[]{new GroupData().withName("test1").withHeader("header1").withFooter("footer1")});
-    list.add(new Object[]{new GroupData().withName("test2").withHeader("header2").withFooter("footer2")});
-    list.add(new Object[]{new GroupData().withName("test3").withHeader("header3").withFooter("footer3")}); */
     BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
     String xml = "";
     String line = reader.readLine();
     while (line != null) {
-     /* String[] split = line.split(";");
-      list.add(new Object[]{new GroupData().withName(split[0]).withHeader(split[1]).withFooter(split[2])}); */
       xml += line;
       line = reader.readLine();
     }
     XStream xStream = new XStream();
     xStream.processAnnotations(GroupData.class);
     List<GroupData> groups = (List<GroupData>) xStream.fromXML(xml);
-    return groups.stream().map((g) -> new Object[] {g}).collect(Collectors.toList()).iterator();
-    //return list.iterator();
+    return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
+  }
+
+  @DataProvider
+  public Iterator<Object[]> validGroupsCSP() throws IOException {
+    List<Object[]> list = new ArrayList<Object[]>();
+    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csp")));
+    String line = reader.readLine();
+    while (line != null) {
+      String[] split = line.split(";");
+      list.add(new Object[]{new GroupData().withName(split[0]).withHeader(split[1]).withFooter(split[2])});
+      line = reader.readLine();
+    }
+    return list.iterator();
   }
 
   @Test
@@ -82,6 +89,7 @@ public class GroupCreationTests extends TestBase {
   @Test(dataProvider = "validGroups")
   //метод лишен недостатков testGroupCreationMs(). данные явно отображены, негативные тесты проходят.
   //данные для отчета полчучаются из ContactData метода toSting.
+  //Data provider позволяет передавать тестовые данные разных форматов.
   public void testGroupCreationDP(GroupData group) throws Exception {
     app.goTo().groupPage();
     Groups before = app.group().all();
@@ -90,7 +98,5 @@ public class GroupCreationTests extends TestBase {
     assertThat(app.group().count(), equalTo(before.size() + 1));
     assertThat(after, equalTo(before
             .withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
-
   }
-
 }
