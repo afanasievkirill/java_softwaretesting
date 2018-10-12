@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<meta http-equiv="x-ua-compatible" content="IE=edge"/>
+<title>Test results - Class ru.stqa.pft.addressbook.tests.ContactCreationTest</title>
+<link href="../css/base-style.css" rel="stylesheet" type="text/css"/>
+<link href="../css/style.css" rel="stylesheet" type="text/css"/>
+<script src="../js/report.js" type="text/javascript"></script>
+</head>
+<body>
+<div id="content">
+<h1>Class ru.stqa.pft.addressbook.tests.ContactCreationTest</h1>
+<div class="breadcrumbs">
+<a href="../index.html">all</a> &gt; 
+<a href="../packages/ru.stqa.pft.addressbook.tests.html">ru.stqa.pft.addressbook.tests</a> &gt; ContactCreationTest</div>
+<div id="summary">
+<table>
+<tr>
+<td>
+<div class="summaryGroup">
+<table>
+<tr>
+<td>
+<div class="infoBox" id="tests">
+<div class="counter">6</div>
+<p>tests</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="failures">
+<div class="counter">1</div>
+<p>failures</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="ignored">
+<div class="counter">0</div>
+<p>ignored</p>
+</div>
+</td>
+<td>
+<div class="infoBox" id="duration">
+<div class="counter">1m3.55s</div>
+<p>duration</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</td>
+<td>
+<div class="infoBox failures" id="successRate">
+<div class="percent">83%</div>
+<p>successful</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div id="tabs">
+<ul class="tabLinks">
+<li>
+<a href="#tab0">Failed tests</a>
+</li>
+<li>
+<a href="#tab1">Tests</a>
+</li>
+<li>
+<a href="#tab2">Standard error</a>
+</li>
+</ul>
+<div id="tab0" class="tab">
+<h2>Failed tests</h2>
+<div class="test">
+<a name="testContactCreation"></a>
+<h3 class="failures">testContactCreation</h3>
+<span class="code">
+<pre>java.lang.AssertionError: 
+Expected: &lt;1&gt;
+     but: was &lt;20&gt;
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:18)
+	at org.hamcrest.MatcherAssert.assertThat(MatcherAssert.java:6)
+	at ru.stqa.pft.addressbook.tests.ContactCreationTest.testContactCreation(ContactCreationTest.java:48)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:131)
+	at org.testng.internal.Invoker.invokeMethod(Invoker.java:658)
+	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:792)
+	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1103)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:140)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:122)
+	at org.testng.TestRunner.privateRun(TestRunner.java:739)
+	at org.testng.TestRunner.run(TestRunner.java:589)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:398)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:392)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:354)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:302)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1145)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1067)
+	at org.testng.TestNG.runSuites(TestNG.java:997)
+	at org.testng.TestNG.run(TestNG.java:965)
+	at org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.runTests(TestNGTestClassProcessor.java:139)
+	at org.gradle.api.internal.tasks.testing.testng.TestNGTestClassProcessor.stop(TestNGTestClassProcessor.java:89)
+	at org.gradle.api.internal.tasks.testing.SuiteTestClassProcessor.stop(SuiteTestClassProcessor.java:61)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.dispatch.ContextClassLoaderDispatch.dispatch(ContextClassLoaderDispatch.java:32)
+	at org.gradle.internal.dispatch.ProxyDispatchAdapter$DispatchingInvocationHandler.invoke(ProxyDispatchAdapter.java:93)
+	at com.sun.proxy.$Proxy2.stop(Unknown Source)
+	at org.gradle.api.internal.tasks.testing.worker.TestWorker.stop(TestWorker.java:131)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:35)
+	at org.gradle.internal.dispatch.ReflectionDispatch.dispatch(ReflectionDispatch.java:24)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:155)
+	at org.gradle.internal.remote.internal.hub.MessageHubBackedObjectConnection$DispatchWrapper.dispatch(MessageHubBackedObjectConnection.java:137)
+	at org.gradle.internal.remote.internal.hub.MessageHub$Handler.run(MessageHub.java:404)
+	at org.gradle.internal.concurrent.ExecutorPolicy$CatchAndRecordFailures.onExecute(ExecutorPolicy.java:63)
+	at org.gradle.internal.concurrent.ManagedExecutorImpl$1.run(ManagedExecutorImpl.java:46)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+	at org.gradle.internal.concurrent.ThreadFactoryImpl$ManagedThreadRunnable.run(ThreadFactoryImpl.java:55)
+	at java.lang.Thread.run(Thread.java:748)
+</pre>
+</span>
+</div>
+</div>
+<div id="tab1" class="tab">
+<h2>Tests</h2>
+<table>
+<thead>
+<tr>
+<th>Test</th>
+<th>Duration</th>
+<th>Result</th>
+</tr>
+</thead>
+<tr>
+<td class="failures">testContactCreation</td>
+<td class="failures">11.064s</td>
+<td class="failures">failed</td>
+</tr>
+<tr>
+<td class="success">testContactCreationJson[0](ContactData{id=2147483647, firstname='Ivan 0', lastname='Ivanov 0'})</td>
+<td class="success">8.991s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testContactCreationJson[1](ContactData{id=2147483647, firstname='Ivan 1', lastname='Ivanov 1'})</td>
+<td class="success">9.463s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testContactCreationJson[2](ContactData{id=2147483647, firstname='Ivan 2', lastname='Ivanov 2'})</td>
+<td class="success">10.417s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testContactCreationJson[3](ContactData{id=2147483647, firstname='Ivan 3', lastname='Ivanov 3'})</td>
+<td class="success">11.159s</td>
+<td class="success">passed</td>
+</tr>
+<tr>
+<td class="success">testContactCreationJson[4](ContactData{id=2147483647, firstname='Ivan 4', lastname='Ivanov 4'})</td>
+<td class="success">12.457s</td>
+<td class="success">passed</td>
+</tr>
+</table>
+</div>
+<div id="tab2" class="tab">
+<h2>Standard error</h2>
+<span class="code">
+<pre>1539337543306	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/group.php
+1539337543352	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/group.php
+1539337543354	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/group.php
+1539337543395	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/edit.php
+1539337543415	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/edit.php
+1539337543663	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337544018	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337544330	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337544637	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337544930	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337545298	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337545688	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337545717	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/edit.php
+1539337545882	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/edit.php
+1539337545884	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/edit.php
+1539337545898	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/edit.php
+1539337545916	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/edit.php
+1539337546012	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/edit.php
+1539337546069	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/edit.php
+1539337546070	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/edit.php
+1539337546159	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/index.php
+1539337546174	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/index.php
+1539337552316	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/index.php
+1539337552378	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/index.php
+1539337552380	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/index.php
+1539337552415	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/edit.php
+1539337552439	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/edit.php
+1539337552679	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337553007	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337553294	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337553599	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337553850	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337554095	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337554427	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337554452	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/edit.php
+1539337554503	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/edit.php
+1539337554505	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/edit.php
+1539337554518	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/edit.php
+1539337554538	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/edit.php
+1539337554619	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/edit.php
+1539337554694	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/edit.php
+1539337554695	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/edit.php
+1539337554869	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/index.php
+1539337554886	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/index.php
+1539337561628	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/index.php
+1539337561673	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/index.php
+1539337561676	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/index.php
+1539337561711	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/edit.php
+1539337561719	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/edit.php
+1539337561976	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337562291	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337562522	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337562836	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337563065	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337563318	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337563657	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337563685	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/edit.php
+1539337563740	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/edit.php
+1539337563742	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/edit.php
+1539337563762	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/edit.php
+1539337563769	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/edit.php
+1539337563862	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/edit.php
+1539337563931	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/edit.php
+1539337563933	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/edit.php
+1539337564046	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/index.php
+1539337564062	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/index.php
+1539337571471	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/index.php
+1539337571523	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/index.php
+1539337571525	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/index.php
+1539337571542	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/edit.php
+1539337571574	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/edit.php
+1539337571829	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337572133	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337572362	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337572672	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337572896	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337573135	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337573470	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337573523	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/edit.php
+1539337573587	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/edit.php
+1539337573589	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/edit.php
+1539337573603	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/edit.php
+1539337573616	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/edit.php
+1539337573696	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/edit.php
+1539337573764	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/edit.php
+1539337573765	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/edit.php
+1539337573847	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/index.php
+1539337573862	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/index.php
+1539337582268	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/index.php
+1539337582315	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/index.php
+1539337582316	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/index.php
+1539337582347	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/edit.php
+1539337582399	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/edit.php
+1539337582641	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337582988	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337583217	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337583541	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337583786	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337584017	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337584360	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337584404	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/edit.php
+1539337584461	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/edit.php
+1539337584463	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/edit.php
+1539337584475	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/edit.php
+1539337584485	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/edit.php
+1539337584572	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/edit.php
+1539337584638	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/edit.php
+1539337584639	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/edit.php
+1539337584712	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/index.php
+1539337584726	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/index.php
+1539337593874	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/index.php
+1539337593917	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/index.php
+1539337593918	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/index.php
+1539337593936	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/edit.php
+1539337593977	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/edit.php
+1539337594223	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337594552	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337594782	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337595116	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337595363	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337595605	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337596020	Marionette	DEBUG	[6442450945] Canceled page load listener because no navigation has been detected
+1539337596052	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/edit.php
+1539337596121	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/edit.php
+1539337596123	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/edit.php
+1539337596136	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/edit.php
+1539337596149	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/edit.php
+1539337596255	Marionette	DEBUG	[6442450945] Received DOM event beforeunload for http://localhost/addressbook/edit.php
+1539337596322	Marionette	DEBUG	[6442450945] Received DOM event pagehide for http://localhost/addressbook/edit.php
+1539337596324	Marionette	DEBUG	[6442450945] Received DOM event unload for http://localhost/addressbook/edit.php
+1539337596401	Marionette	DEBUG	[6442450945] Received DOM event DOMContentLoaded for http://localhost/addressbook/index.php
+1539337596416	Marionette	DEBUG	[6442450945] Received DOM event pageshow for http://localhost/addressbook/index.php
+</pre>
+</span>
+</div>
+</div>
+<div id="footer">
+<p>
+<div>
+<label class="hidden" id="label-for-line-wrapping-toggle" for="line-wrapping-toggle">Wrap lines
+<input id="line-wrapping-toggle" type="checkbox" autocomplete="off"/>
+</label>
+</div>Generated by 
+<a href="http://www.gradle.org">Gradle 4.10</a> at 12.10.2018 12:46:42</p>
+</div>
+</div>
+</body>
+</html>

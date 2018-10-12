@@ -1,0 +1,32 @@
+[
+  {
+    "firstname": "Ivan 0",
+    "lastname": "Ivanov 0",
+    "homephone": "+791533335550",
+    "group": "test1"
+  },
+  {
+    "firstname": "Ivan 1",
+    "lastname": "Ivanov 1",
+    "homephone": "+791533335551",
+    "group": "test1"
+  },
+  {
+    "firstname": "Ivan 2",
+    "lastname": "Ivanov 2",
+    "homephone": "+791533335552",
+    "group": "test1"
+  },
+  {
+    "firstname": "Ivan 3",
+    "lastname": "Ivanov 3",
+    "homephone": "+791533335553",
+    "group": "test1"
+  },
+  {
+    "firstname": "Ivan 4",
+    "lastname": "Ivanov 4",
+    "homephone": "+791533335554",
+    "group": "test1"
+  }
+]

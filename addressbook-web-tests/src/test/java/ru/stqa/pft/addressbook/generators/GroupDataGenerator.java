@@ -42,12 +42,11 @@ public class GroupDataGenerator {
     List<GroupData> groups = generateGroups(count);
     if (format.equals("csv")) {
       saveAsCsv(groups, new File(file));
-    } else if (format.equals("xml")){
+    } else if (format.equals("xml")) {
       saveAsXML(groups, new File(file));
-    } else if (format.equals("json")){
+    } else if (format.equals("json")) {
       saveAsJSON(groups, new File(file));
-    } else
-      {
+    } else {
       System.out.println("Unrecognaized format" + format);
     }
   }
@@ -56,26 +55,26 @@ public class GroupDataGenerator {
 //    Gson gson = new Gson(); вывод по умолчанию.
     Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
     String json = gson.toJson(groups);
-    Writer writer = new FileWriter(file);
-    writer.write(json);
-    writer.close();
+    try (Writer writer = new FileWriter(file)) {
+      writer.write(json);
+    }
   }
 
   private void saveAsXML(List<GroupData> groups, File file) throws IOException {
     XStream xsteram = new XStream();
     xsteram.processAnnotations(GroupData.class);
     String xml = xsteram.toXML(groups);
-    Writer writer = new FileWriter(file);
-    writer.write(xml);
-    writer.close();
+    try (Writer writer = new FileWriter(file)) {
+      writer.write(xml);
+    }
   }
 
   private void saveAsCsv(List<GroupData> groups, File file) throws IOException {
-    Writer writer = new FileWriter(file);
-    for (GroupData group : groups) {
-      writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter()));
+    try (Writer writer = new FileWriter(file)) {
+      for (GroupData group : groups) {
+        writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter()));
+      }
     }
-    writer.close();
   }
 
   private List<GroupData> generateGroups(int count) {
