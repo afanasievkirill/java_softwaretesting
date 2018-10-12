@@ -4,6 +4,8 @@ package ru.stqa.pft.addressbook.tests;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.GroupData;
@@ -47,7 +49,8 @@ public class GroupCreationTests extends TestBase {
       line = reader.readLine();
     }
     Gson gson = new Gson();
-    List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>(){}.getType()); //list<GroupData>.class
+    List<GroupData> groups = gson.fromJson(json, new TypeToken<List<GroupData>>() {
+    }.getType()); //list<GroupData>.class
     return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
   }
 
@@ -108,7 +111,7 @@ public class GroupCreationTests extends TestBase {
   //данные для отчета полчучаются из ContactData метода toSting.
   //Data provider позволяет передавать тестовые данные разных форматов. Выбор формата анотоируется аргументом DataProvider
   public void testGroupCreationDP(GroupData group) throws Exception {
-    app.goTo().groupPage();
+        app.goTo().groupPage();
     Groups before = app.group().all();
     app.group().create(group);
     Groups after = app.group().all();
