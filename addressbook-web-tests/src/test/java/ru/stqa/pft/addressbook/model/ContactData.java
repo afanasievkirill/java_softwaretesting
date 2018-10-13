@@ -25,9 +25,6 @@ public class ContactData {
   private String email3;
   @Expose
   private String group;
-
-
-
   private File photo;
 
   public String getFirstname() {

@@ -71,7 +71,7 @@ public class ContactHelper extends HelperBase {
 
   public void editContactById(int id) {
     wd.findElement(By.cssSelector("a[href='edit.php?id=" + id + "']")).click(); // выбор элемента по индексу
-//    click(By.xpath("//img[@alt='Edit']"));
+//   или через String.format("a[href='edit.php?id=%s'", id)
   }
 
 
