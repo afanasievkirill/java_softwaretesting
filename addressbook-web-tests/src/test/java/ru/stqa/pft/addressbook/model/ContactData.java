@@ -19,6 +19,8 @@ public class ContactData {
   @Column(name = "firstname")
   private String firstname;
 
+  @Expose
+  @Column(name = "middlename")
   private String middlename;
 
   @Expose
@@ -218,11 +220,12 @@ public class ContactData {
     return "ContactData{" +
             "id=" + id +
             ", firstname='" + firstname + '\'' +
+            ", middlename='" + middlename + '\'' +
             ", lastname='" + lastname + '\'' +
+            ", address='" + address + '\'' +
+            ", homephone='" + homephone + '\'' +
             '}';
   }
-
-
 
   @Override
   public boolean equals(Object o) {
@@ -231,15 +234,13 @@ public class ContactData {
     ContactData that = (ContactData) o;
     return id == that.id &&
             Objects.equals(firstname, that.firstname) &&
-            Objects.equals(lastname, that.lastname);
+            Objects.equals(middlename, that.middlename) &&
+            Objects.equals(lastname, that.lastname) &&
+            Objects.equals(homephone, that.homephone);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, firstname, lastname);
+    return Objects.hash(id, firstname, middlename, lastname, homephone);
   }
-
-
-
-
 }

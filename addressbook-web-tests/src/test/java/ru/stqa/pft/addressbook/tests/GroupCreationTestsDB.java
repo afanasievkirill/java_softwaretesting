@@ -43,33 +43,32 @@ public class GroupCreationTestsDB extends TestBase {
   public void testGroupCreation() throws Exception {
     app.goTo().groupPage();
     Groups before = app.db().groups();
-    GroupData groupAdd = new GroupData().withName("test 2").withHeader("тест").withFooter("тест");
-    app.group().create(groupAdd);
+    GroupData group = new GroupData().withName("test 2").withHeader("тест").withFooter("тест");
+    app.group().create(group);
     Groups after = app.db().groups();
  //   assertThat(app.group().count(), equalTo(before.size() + 1));
-    assertThat(after, equalTo(before.withAdded(groupAdd)));
+    assertThat(after, equalTo(before
+            .withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+
   }
 
   @Test
   public void testBadGroupCreation() throws Exception {
     app.goTo().groupPage();
-    Groups before = app.group().all();
+    Groups before = app.db().groups();
     GroupData group = new GroupData().withName("test 2'");
     app.group().create(group);
     assertThat(app.group().count(), equalTo(before.size()));
-    Groups after = app.group().all();
+    Groups after = app.db().groups();
     assertThat(after, equalTo(before));
   }
 
   @Test(dataProvider = "validGroupsFromJson")
-  //метод лишен недостатков testGroupCreationMs(). данные явно отображены, негативные тесты проходят.
-  //данные для отчета полчучаются из ContactData метода toSting.
-  //Data provider позволяет передавать тестовые данные разных форматов. Выбор формата анотоируется аргументом DataProvider
   public void testGroupCreationDP(GroupData group) throws Exception {
         app.goTo().groupPage();
-    Groups before = app.group().all();
+    Groups before = app.db().groups();
     app.group().create(group);
-    Groups after = app.group().all();
+    Groups after = app.db().groups();
     assertThat(app.group().count(), equalTo(before.size() + 1));
     assertThat(after, equalTo(before
             .withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
