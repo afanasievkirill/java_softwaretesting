@@ -22,6 +22,7 @@ public class ApplicationManager {
   private NavigationHelper navigationHelper;
   private GroupHelper groupHelper;
   private SessionHelper sessionHelper;
+  private DbHelper dbHelper;
   private String browser;
 
   public ApplicationManager(String browser)  {
@@ -32,6 +33,8 @@ public class ApplicationManager {
   public void init() throws IOException{
     String target = System.getProperty("target", "local");
     properties.load(new FileReader(new File(String.format("src/test/resources/%s.properties", target))));
+
+    dbHelper = new DbHelper(); //инициализция вынесена вверх с целью сокращения времени при падении браузера.
 
     if(browser.equals(BrowserType.FIREFOX)) {
       wd = new FirefoxDriver();
@@ -71,6 +74,9 @@ public class ApplicationManager {
     return contactHelper;
   }
 
+  public DbHelper db() {
+    return dbHelper;
+  }
 }
 
 
