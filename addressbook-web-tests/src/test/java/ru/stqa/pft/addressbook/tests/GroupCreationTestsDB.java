@@ -24,22 +24,6 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class GroupCreationTestsDB extends TestBase {
 
   @DataProvider
-  public Iterator<Object[]> validGroupsFromXml() throws IOException {
-    List<Object[]> list = new ArrayList<Object[]>();
-    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.xml")));
-    String xml = "";
-    String line = reader.readLine();
-    while (line != null) {
-      xml += line;
-      line = reader.readLine();
-    }
-    XStream xStream = new XStream();
-    xStream.processAnnotations(GroupData.class);
-    List<GroupData> groups = (List<GroupData>) xStream.fromXML(xml);
-    return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
-  }
-
-  @DataProvider
   public Iterator<Object[]> validGroupsFromJson() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
     BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.json")));
@@ -55,29 +39,15 @@ public class GroupCreationTestsDB extends TestBase {
     return groups.stream().map((g) -> new Object[]{g}).collect(Collectors.toList()).iterator();
   }
 
-  @DataProvider
-  public Iterator<Object[]> validGroupsFromCsv() throws IOException {
-    List<Object[]> list = new ArrayList<Object[]>();
-    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/groups.csv")));
-    String line = reader.readLine();
-    while (line != null) {
-      String[] split = line.split(";");
-      list.add(new Object[]{new GroupData().withName(split[0]).withHeader(split[1]).withFooter(split[2])});
-      line = reader.readLine();
-    }
-    return list.iterator();
-  }
-
   @Test
   public void testGroupCreation() throws Exception {
     app.goTo().groupPage();
-    Groups before = app.group().all();
-    GroupData group = new GroupData().withName("test 2");
-    app.group().create(group);
-    Groups after = app.group().all();
-    assertThat(app.group().count(), equalTo(before.size() + 1));
-    assertThat(after, equalTo(before
-            .withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
+    Groups before = app.db().groups();
+    GroupData groupAdd = new GroupData().withName("test 2").withHeader("тест").withFooter("тест");
+    app.group().create(groupAdd);
+    Groups after = app.db().groups();
+ //   assertThat(app.group().count(), equalTo(before.size() + 1));
+    assertThat(after, equalTo(before.withAdded(groupAdd)));
   }
 
   @Test
@@ -89,22 +59,6 @@ public class GroupCreationTestsDB extends TestBase {
     assertThat(app.group().count(), equalTo(before.size()));
     Groups after = app.group().all();
     assertThat(after, equalTo(before));
-  }
-
-  @Test(enabled = false)
-  //Недостатки: метод не информирует о тестовых данных, падает на негативных данных.
-  public void testGroupCreationMs() throws Exception {
-    String[] names = new String[]{"test1", "test2", "test3"};
-    for (String name : names) {
-      app.goTo().groupPage();
-      Groups before = app.group().all();
-      GroupData group = new GroupData().withName(name);
-      app.group().create(group);
-      Groups after = app.group().all();
-      assertThat(app.group().count(), equalTo(before.size() + 1));
-      assertThat(after, equalTo(before
-              .withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
-    }
   }
 
   @Test(dataProvider = "validGroupsFromJson")

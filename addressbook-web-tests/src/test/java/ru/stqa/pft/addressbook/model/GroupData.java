@@ -18,7 +18,7 @@ public class GroupData {
   @XStreamOmitField // анотация убирает ид при загрузке в xml.
   @Id // Анотация для айди в базе данных
   @Column (name ="group_id")
-  private int id = Integer.MAX_VALUE;
+  private int id;
   @Expose //анотоация добавляет переменную при загрузке в json
   @Column (name ="group_name")
   private String name;
@@ -68,6 +68,16 @@ public class GroupData {
   }
 
   @Override
+  public String toString() {
+    return "GroupData{" +
+            "id=" + id +
+            ", name='" + name + '\'' +
+            ", header='" + header + '\'' +
+            ", footer='" + footer + '\'' +
+            '}';
+  }
+
+  @Override
   public boolean equals(Object o) {
     if (this == o) return true;
     if (o == null || getClass() != o.getClass()) return false;
@@ -81,14 +91,6 @@ public class GroupData {
   @Override
   public int hashCode() {
     return Objects.hash(id, name, header, footer);
-  }
-
-  @Override
-  public String toString() {
-    return "GroupData{" +
-            "id='" + id + '\'' +
-            ", name='" + name + '\'' +
-            '}';
   }
 
 }
