@@ -6,6 +6,7 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -38,11 +39,12 @@ public class ContactCreationTestDB extends TestBase{
 
   @Test
   public void testContactCreation() throws Exception {
+    Groups groups = app.db().groups();
     Contacts before = app.db().contacts();
     File photo = new File("src/test/resources/cumis.png");
     ContactData contact = new ContactData().
             withFirstname("Ivan").withMiddlename("Ivanovich").withLastname("Ivanov").withAddress("Moscow Red squre 1 h1").
-            withHomephone("+79153925555").withNickname("Ivan_01").withGroup("Test1").withPhoto(photo);
+            withHomephone("+79153925555").withNickname("Ivan_01").inGroup(groups.iterator().next()).withPhoto(photo);
     app.contact().create(contact, true);
     Contacts after = app.db().contacts();
   //  assertThat(after.size(), equalTo(before.size()+1));
@@ -52,10 +54,11 @@ public class ContactCreationTestDB extends TestBase{
 
   @Test (enabled = false)
   public void testBadContactCreation() throws Exception {
+    Groups groups = app.db().groups();
     Contacts before = app.contact().all();
     ContactData contact = new ContactData().
             withFirstname("Ivan'").withMiddlename("Ivanovich").withLastname("Ivanov").withAddress("Moscow Red squre 1 h1").
-            withHomephone("+79153925555").withNickname("Ivan_01").withGroup("Test1");
+            withHomephone("+79153925555").withNickname("Ivan_01").inGroup(groups.iterator().next());
     app.contact().create(contact, true);
     Contacts after = app.contact().all();
     assertThat(after.size(), equalTo(before.size()));
