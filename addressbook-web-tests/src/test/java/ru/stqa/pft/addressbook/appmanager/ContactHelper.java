@@ -7,6 +7,7 @@ import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
 
 
 import java.util.ArrayList;
@@ -68,6 +69,10 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("home")); //пауза
   }
 
+  public void returnToHomePage() {
+    click(By.linkText("home"));
+  }
+
   public void editContact(int index) {
     wd.findElements(By.xpath("//img[@alt='Edit']")).get(index).click(); // выбор элемента по индексу
 //    click(By.xpath("//img[@alt='Edit']"));
@@ -83,9 +88,9 @@ public class ContactHelper extends HelperBase {
     click(By.name("update"));
   }
 
-  public void create(ContactData contactData, boolean group) {
+  public void create(ContactData contactData) {
     initContactCreation();
-    fillContactData(contactData, group);
+    fillContactData(contactData, true);
     submitContactCreation();
     returnToContactList();
   }
@@ -174,5 +179,23 @@ public class ContactHelper extends HelperBase {
     return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
             .withHomephone(homePhone).withMobilePhone(mobilePhone).withWorkPhone(workPhone).
                     withEmail(email).withEmail2(email2).withEmail3(email3).withAddress(address);
+  }
+
+  public void addToGroup(ContactData contact, GroupData group) {
+    selectContactById(contact.getId());
+    new Select(wd.findElement(By.name("to_group"))).selectByValue(Integer.toString(group.getId()));
+    click(By.name("add"));
+    returnToHomePage();
+  }
+
+  public void selectGroupFromList(String group, String element) {
+    new Select(wd.findElement(By.name(element))).selectByVisibleText(group);
+  }
+
+  public void removeFromGroup (ContactData contact, GroupData group) {
+    selectGroupFromList("[all]", "group");
+    selectGroupFromList(group.getName(), "group");
+    selectContactById(contact.getId());
+    click(By.name("remove"));
   }
 }

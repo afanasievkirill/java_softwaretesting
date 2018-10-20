@@ -45,7 +45,7 @@ public class ContactCreationTestDB extends TestBase{
     ContactData contact = new ContactData().
             withFirstname("Ivan").withMiddlename("Ivanovich").withLastname("Ivanov").withAddress("Moscow Red squre 1 h1").
             withHomephone("+79153925555").withNickname("Ivan_01").inGroup(groups.iterator().next()).withPhoto(photo);
-    app.contact().create(contact, true);
+    app.contact().create(contact);
     Contacts after = app.db().contacts();
   //  assertThat(after.size(), equalTo(before.size()+1));
     assertThat(after, equalTo(
@@ -59,7 +59,7 @@ public class ContactCreationTestDB extends TestBase{
     ContactData contact = new ContactData().
             withFirstname("Ivan'").withMiddlename("Ivanovich").withLastname("Ivanov").withAddress("Moscow Red squre 1 h1").
             withHomephone("+79153925555").withNickname("Ivan_01").inGroup(groups.iterator().next());
-    app.contact().create(contact, true);
+    app.contact().create(contact);
     Contacts after = app.contact().all();
     assertThat(after.size(), equalTo(before.size()));
     assertThat(after, equalTo(before));
@@ -68,7 +68,7 @@ public class ContactCreationTestDB extends TestBase{
   @Test (dataProvider = "validGroupsFromJson")
   public void testContactCreationJson(ContactData contact) throws Exception {
     Contacts before = app.contact().all();
-    app.contact().create(contact, true);
+    app.contact().create(contact);
     Contacts after = app.contact().all();
     assertThat(after.size(), equalTo(before.size()+1));
     assertThat(after, equalTo(
